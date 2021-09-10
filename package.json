@@ -1,0 +1,49 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "installLocalOptimism": "git clone git@github.com:ethereum-optimism/optimism.git && cd optimism && yarn install && yarn build",
+    "startLocalOptimism": "cd optimism/ops && export COMPOSE_DOCKER_CLI_BUILD=1 && export DOCKER_BUILDKIT=1 && docker-compose build && docker-compose up",
+    "stopLocalOptimism": "cd optimism/ops && docker-compose down -v",
+    "compile:evm": "truffle compile",
+    "compile:ovm": "truffle compile --config truffle-config.ovm.js",
+    "migrate:evm": "truffle migrate",
+    "migrate:ovm": "truffle migrate --skip-dry-run --config truffle-config.ovm.js --network $npm_config_network",
+    "test:evm": "truffle test",
+    "test:ovm": "truffle test --config truffle-config.ovm.js --network $npm_config_network"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@chainlink/contracts": "0.0.10",
+    "babel-eslint": "^10.1.0",
+    "babel-polyfill": "^6.26.0",
+    "bignumber.js": "^9.0.1",
+    "bn.js": "^5.1.3",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "ethers": "^5.0.17",
+    "js-sha3": "^0.8.0",
+    "openzeppelin-solidity": "^3.2.0",
+    "truffle-ledger-provider": "^0.0.5",
+    "truffle-privatekey-provider": "^1.5.0",
+    "@truffle/hdwallet-provider": "^1.4.1",
+    "@eth-optimism/core-utils": "^0.4.4",
+    "@eth-optimism/plugins": "^0.0.20",
+    "@eth-optimism/solc": "0.6.12-alpha.1",
+    "@eth-optimism/contracts": "^0.4.5",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-mocha": "^6.3.0",
+    "eslint-plugin-react": "^7.21.3"
+  },
+  "description": ""
+}
